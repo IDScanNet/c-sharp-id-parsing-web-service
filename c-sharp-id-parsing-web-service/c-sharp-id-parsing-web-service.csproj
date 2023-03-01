@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>c_sharp_id_parsing_web_service</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RestSharp" Version="108.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="barcode-image.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

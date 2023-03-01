@@ -1,0 +1,5 @@
+c-sharp-id-parsing-web-service/bin/
+c-sharp-id-parsing-web-service/obj/
+.vs/c-sharp-id-parsing-web-service/v17/.suo
+.vs/c-sharp-id-parsing-web-service/DesignTimeBuild/.dtbcache.v2
+c-sharp-id-parsing-web-service/barcode-image.jpg
