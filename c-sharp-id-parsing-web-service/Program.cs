@@ -15,9 +15,6 @@ namespace idscan{
 
             var request = new RestRequest("/DriverLicenseParserRest.svc/ParseImage", Method.Post);
 
-            // Json to post.
-            //var body = new Body { authKey = authKey, data = data };
-
             string jsonString = JsonSerializer.Serialize(new { authKey = authKey, data = data });
 
             request.AddParameter("application/json", jsonString, ParameterType.RequestBody);
