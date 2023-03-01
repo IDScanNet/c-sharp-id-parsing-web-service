@@ -6,6 +6,14 @@ namespace idscan{
     {
         static void Main(string[] args) {
 
+            parseImageRequest();
+
+            validateDriversLicenseNumber();
+
+        }
+
+        public static void parseImageRequest()
+        {
             string authKey = "REPLACE_ME";
 
             var imageFile = File.ReadAllBytes(@"barcode-image.jpg");
@@ -15,9 +23,6 @@ namespace idscan{
 
             var request = new RestRequest("/DriverLicenseParserRest.svc/ParseImage", Method.Post);
 
-            // Json to post.
-            //var body = new Body { authKey = authKey, data = data };
-
             string jsonString = JsonSerializer.Serialize(new { authKey = authKey, data = data });
 
             request.AddParameter("application/json", jsonString, ParameterType.RequestBody);
@@ -25,8 +30,23 @@ namespace idscan{
 
             var response = client.Execute(request);
 
-
         }
+
+        public static void validateDriversLicenseNumber()
+        {
+            string authKey = "REPLACE_ME";
+
+            var client = new RestClient("https://app1.idware.net");
+            var request = new RestRequest("/DriverLicenseParserRest.svc/ValidateLicenseNumber", Method.Post);
+
+            string jsonString = JsonSerializer.Serialize(new { authKey = authKey, licenseNumber = "011978085", jurisdictionCode = "LA", countryCode = "USA" } );
+
+            request.AddParameter("application/json", jsonString, ParameterType.RequestBody);
+            request.RequestFormat = DataFormat.Json;
+
+            var response = client.Execute(request);
+    }
+
 
     }
 }
