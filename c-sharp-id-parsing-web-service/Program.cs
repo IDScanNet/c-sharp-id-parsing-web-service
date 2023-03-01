@@ -8,7 +8,7 @@ namespace idscan{
 
             string authKey = "REPLACE_ME";
 
-            var imageFile = File.ReadAllBytes(@"barcode-image.jpg");
+            var imageFile = File.ReadAllBytes(@"REPLACE_ME");
             var data = Convert.ToBase64String(imageFile);
 
             var client = new RestClient("https://app1.idware.net");
